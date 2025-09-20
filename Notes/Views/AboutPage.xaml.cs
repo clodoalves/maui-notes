@@ -1,4 +1,6 @@
-namespace Notes;
+using Microsoft.Maui.ApplicationModel;
+
+namespace Notes.Views;
 
 public partial class AboutPage : ContentPage
 {
@@ -9,6 +11,8 @@ public partial class AboutPage : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        await Launcher.Default.OpenAsync("https://aka.ms/maui");
+        if (BindingContext is Models.About about)
+
+        await Launcher.Default.OpenAsync(about.MoreInfoUrl);
     }
 }
